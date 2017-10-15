@@ -27,6 +27,7 @@ class BestFirst:
         node.h = h_fn(node.state)
         node.prev = None
 
+        # TODO Change to lsm-tree
         self.frontier = {node.state: node}
         self.last_expanded = None
         self.solution = None
@@ -49,7 +50,7 @@ class BestFirst:
         self.expanded.append(next_node)
         self.last_expanded = next_node  # 2
         if self.solution_fn(next_node.state):  # 3
-            print("solution_ found")
+            print("solution found")
             self.solution = self.generate_solution_path(next_node)
             return
         self.expand_counter += 1  # 4
